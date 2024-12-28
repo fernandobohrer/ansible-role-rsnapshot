@@ -1,0 +1,26 @@
+config_version 1.2
+
+snapshot_root {{ rsnapshot_root }}/
+
+cmd_cp {{ __rsnapshot_cmd_cp }}
+cmd_du {{ __rsnapshot_cmd_du }}
+cmd_rm {{ __rsnapshot_cmd_rm }}
+cmd_rsync {{ __rsnapshot_cmd_rsync }}
+cmd_logger {{ __rsnapshot_cmd_logger }}
+
+retain hourly {{ rsnapshot_hourly_retention }}
+retain daily {{ rsnapshot_daily_retention }}
+retain weekly {{ rsnapshot_weekly_retention }}
+retain monthly {{rsnapshot_monthly_retention }}
+
+logfile {{ __rsnapshot_logfile }}
+lockfile {{ __rsnapshot_lockfile }}
+
+verbose {{ rsnapshot_verbosity }}
+loglevel {{ rsnapshot_log_level }}
+
+link_dest {{ rsnapshot_link_dest }}
+
+{% for directory in rsnapshot_directories_to_backup %}
+backup {{ directory }}/ localhost/
+{% endfor %}

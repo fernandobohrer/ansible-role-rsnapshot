@@ -1,0 +1,11 @@
+---
+__rsnapshot_cmd_cp: /usr/bin/cp
+__rsnapshot_cmd_du: /usr/bin/du
+__rsnapshot_cmd_rm: /usr/bin/rm
+__rsnapshot_cmd_rsync: /usr/bin/rsync
+__rsnapshot_cmd_logger: /usr/bin/logger
+
+__rsnapshot_logfile: /var/log/rsnapshot.log
+__rsnapshot_lockfile: /var/run/rsnapshot.pid
+
+__ansible_role_conf_dir: /etc/{{ ansible_role_name }}

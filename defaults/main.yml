@@ -1,0 +1,43 @@
+---
+# Update the apt cache if it is older than the apt_cache_valid_time value.
+# Option set in seconds.
+apt_cache_valid_time: 3600
+
+# Snapshots will be stored under this directory:
+rsnapshot_root: /var/cache/rsnapshot
+
+# List of directories to backup:
+rsnapshot_directories_to_backup:
+  - /home
+
+# Hourly, daily, weekly and monthly retention periods.
+# The configuration below allows for:
+# - 1 day of hourly backups
+# - 1 week of daily backups
+# - 1 month of weekly backups
+# - 1 year of montly backups
+rsnapshot_hourly_retention: 24
+rsnapshot_daily_retention: 7
+rsnapshot_weekly_retention: 4
+rsnapshot_monthly_retention: 12
+
+# Hourly, daily, weekly and monthly cron expressions:
+# To check the cron expressions, use https://crontab.guru/
+rsnapshot_hourly_cron_expression: "00 * * * *"
+rsnapshot_daily_cron_expression: "15 00 * * *"
+rsnapshot_weekly_cron_expression: "30 00 * * 0"
+rsnapshot_monthly_cron_expression: "45 00 1 * *"
+
+# The options for the rsnapshot_verbosity and for the rsnapshot_log_level are:
+#  1  Quiet          Print fatal errors only
+#  2  Default        Print errors and warnings only
+#  3  Verbose        Show equivalent shell commands being executed
+#  4  Extra Verbose  Show extra verbose information
+#  5  Debug mode     Everything
+rsnapshot_verbosity: 2
+rsnapshot_log_level: 3
+
+# If your version of rsync supports --link-dest, consider enabling this.
+# This is the best way to support special files (FIFOs, etc) cross-platform.
+# 0 equals off. 1 equals on.
+rsnapshot_link_dest: 1

@@ -1,0 +1,43 @@
+---
+- name: Ensure rsnapshot package is installed
+  ansible.builtin.apt:
+    name: rsnapshot
+    state: present
+    update_cache: true
+    cache_valid_time: "{{ apt_cache_valid_time }}"
+
+- name: Ensure Ansible role configuration directory exists
+  ansible.builtin.file:
+    path: "{{ __ansible_role_conf_dir }}"
+    state: directory
+    owner: root
+    group: root
+    mode: "755"
+
+- name: Update template to temporary directory on target
+  ansible.builtin.template:
+    src: rsnapshot.conf.j2
+    dest: "{{ __ansible_role_conf_dir }}/rsnapshot.conf"
+    owner: root
+    group: root
+    mode: "644"
+  notify: Adjust rsnapshot configuration
+
+- name: Force notified handlers to run at this point
+  ansible.builtin.meta: flush_handlers
+
+- name: Test the rsnapshot configuration
+  ansible.builtin.command:
+    cmd: |
+      rsnapshot configtest
+  changed_when: false
+  register: rsnapshot_configuration_test
+  failed_when: '"Syntax OK" not in rsnapshot_configuration_test.stdout'
+
+- name: Ensure rsnapshot cron file is up to date
+  ansible.builtin.template:
+    src: rsnapshot.cron.j2
+    dest: /etc/cron.d/rsnapshot
+    owner: root
+    group: root
+    mode: "644"
