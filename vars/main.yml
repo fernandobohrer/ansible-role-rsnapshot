@@ -1,11 +1,14 @@
 ---
-__rsnapshot_cmd_cp: /usr/bin/cp
-__rsnapshot_cmd_du: /usr/bin/du
-__rsnapshot_cmd_rm: /usr/bin/rm
-__rsnapshot_cmd_rsync: /usr/bin/rsync
-__rsnapshot_cmd_logger: /usr/bin/logger
+__rsnapshot__role_dependencies:
+  - rsnapshot
 
-__rsnapshot_logfile: /var/log/rsnapshot.log
-__rsnapshot_lockfile: /var/run/rsnapshot.pid
+__rsnapshot__cmd_cp: /usr/bin/cp
+__rsnapshot__cmd_du: /usr/bin/du
+__rsnapshot__cmd_rm: /usr/bin/rm
+__rsnapshot__cmd_rsync: /usr/bin/rsync
+__rsnapshot__cmd_logger: /usr/bin/logger
 
-__ansible_role_conf_dir: /etc/{{ ansible_role_name }}
+__rsnapshot__logfile: /var/log/rsnapshot.log
+__rsnapshot__lockfile: /var/run/rsnapshot.pid
+
+__rsnapshot__ansible_role_conf_dir: /etc/{{ ansible_role_name }}

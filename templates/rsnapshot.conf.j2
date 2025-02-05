@@ -1,26 +1,26 @@
 config_version 1.2
 
-snapshot_root {{ rsnapshot_root }}/
+snapshot_root {{ rsnapshot__backup_root }}/
 
-cmd_cp {{ __rsnapshot_cmd_cp }}
-cmd_du {{ __rsnapshot_cmd_du }}
-cmd_rm {{ __rsnapshot_cmd_rm }}
-cmd_rsync {{ __rsnapshot_cmd_rsync }}
-cmd_logger {{ __rsnapshot_cmd_logger }}
+cmd_cp {{ __rsnapshot__cmd_cp }}
+cmd_du {{ __rsnapshot__cmd_du }}
+cmd_rm {{ __rsnapshot__cmd_rm }}
+cmd_rsync {{ __rsnapshot__cmd_rsync }}
+cmd_logger {{ __rsnapshot__cmd_logger }}
 
-retain hourly {{ rsnapshot_hourly_retention }}
-retain daily {{ rsnapshot_daily_retention }}
-retain weekly {{ rsnapshot_weekly_retention }}
-retain monthly {{rsnapshot_monthly_retention }}
+retain hourly {{ rsnapshot__hourly_retention }}
+retain daily {{ rsnapshot__daily_retention }}
+retain weekly {{ rsnapshot__weekly_retention }}
+retain monthly {{rsnapshot__monthly_retention }}
 
-logfile {{ __rsnapshot_logfile }}
-lockfile {{ __rsnapshot_lockfile }}
+logfile {{ __rsnapshot__logfile }}
+lockfile {{ __rsnapshot__lockfile }}
 
-verbose {{ rsnapshot_verbosity }}
-loglevel {{ rsnapshot_log_level }}
+verbose {{ rsnapshot__verbosity }}
+loglevel {{ rsnapshot__log_level }}
 
-link_dest {{ rsnapshot_link_dest }}
+link_dest {{ rsnapshot__link_dest }}
 
-{% for directory in rsnapshot_directories_to_backup %}
+{% for directory in rsnapshot__directories_to_backup %}
 backup {{ directory }}/ localhost/
 {% endfor %}

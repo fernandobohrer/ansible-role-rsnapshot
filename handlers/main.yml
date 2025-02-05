@@ -6,6 +6,6 @@
       RANDOM_ID=$((1000 + RANDOM % 9000))
       DATE_TIME=$(date +"%Y-%m-%d@%H:%M:%S~")
       cp /etc/rsnapshot.conf /etc/rsnapshot.conf."${RANDOM_ID}"."${DATE_TIME}"
-      awk -v OFS="\t" '$1=$1' {{ __ansible_role_conf_dir }}/rsnapshot.conf > /etc/rsnapshot.conf
-  register: rsnapshot_configuration
-  changed_when: rsnapshot_configuration.changed
+      awk -v OFS="\t" '$1=$1' {{ __rsnapshot__ansible_role_conf_dir }}/rsnapshot.conf > /etc/rsnapshot.conf
+  register: rsnapshot__configuration
+  changed_when: rsnapshot__configuration.changed
