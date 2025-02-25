@@ -15,7 +15,7 @@ rsnapshot__directories_to_backup:
 # - 1 day of hourly backups
 # - 1 week of daily backups
 # - 1 month of weekly backups
-# - 1 year of montly backups
+# - 1 year of monthly backups
 rsnapshot__hourly_retention: 24
 rsnapshot__daily_retention: 7
 rsnapshot__weekly_retention: 4
