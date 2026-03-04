@@ -14,7 +14,7 @@ This role deploys and configures [rsnapshot][01] on Linux boxes.
 
 ## 📑 Role Variables
 
-Check [here][02].
+Check [defaults/main.yml][02].
 
 ## 🧰 Dependencies
 
