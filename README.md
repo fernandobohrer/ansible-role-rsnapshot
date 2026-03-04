@@ -6,9 +6,9 @@ An Ansible role that deploys and configures [rsnapshot][01] on Linux boxes.
 
 From rsnapshot's [site][01]:
 
-*rsnapshot is a filesystem snapshot utility based on rsync. rsnapshot makes it easy to make periodic snapshots of local machines, and remote machines over ssh. The code makes extensive use of hard links whenever possible, to greatly reduce the disk space required.*
+_rsnapshot is a filesystem snapshot utility based on rsync. rsnapshot makes it easy to make periodic snapshots of local machines, and remote machines over ssh. The code makes extensive use of hard links whenever possible, to greatly reduce the disk space required._
 
-*Files can be restored by the users who own them, without the root user getting involved. There are no tapes to change, so once it's set up, your backups can happen automatically untouched by human hands. And because rsnapshot only keeps a fixed (but configurable) number of snapshots, the amount of disk space used will not continuously grow.*
+_Files can be restored by the users who own them, without the root user getting involved. There are no tapes to change, so once it's set up, your backups can happen automatically untouched by human hands. And because rsnapshot only keeps a fixed (but configurable) number of snapshots, the amount of disk space used will not continuously grow._
 
 This role deploys and configures [rsnapshot][01] on Linux boxes.
 
